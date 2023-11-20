@@ -1,3 +1,5 @@
+// コードを書くためのルール
+// 保守性や堅牢性を上げる
 {
   "extends": "next/core-web-vitals"
 }
