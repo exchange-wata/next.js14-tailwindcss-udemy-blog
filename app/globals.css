@@ -1,3 +1,4 @@
+/* サイト全体に共有するcssファイル */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
