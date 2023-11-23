@@ -1,7 +1,10 @@
+import { getAllArticles } from "./blogApi";
 import Articles from "./component/ArticleList";
 
 // ルートディレクトリのデータが表示されている
-export default function Home() {
+export default async function Home() {
+  const articles = await getAllArticles();
+
   return (
     <div className="md:flex">
       <section className="w-full md:w2/3 flex flex-col items-center px-3">
