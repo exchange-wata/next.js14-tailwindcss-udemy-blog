@@ -1,6 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
+// import Image from "next/image";
 import { Article } from "../types";
+import ShowImage from "./Form/Image";
+import Link from "next/link";
 
 type ArticleListProp = {
   articles: Article[];
@@ -12,16 +13,7 @@ const ArticleList = ({ articles }: ArticleListProp) => {
       {articles.map((article) => {
         return (
           <article className="shadow my-4 flex flex-col" key={article.id}>
-            <Link href={"#"} className="hover:opacity-75">
-              <Image
-                src={
-                  "https://source.unsplash.com/collection/1346951/1000*150?sig=1"
-                }
-                alt={""}
-                width={1280}
-                height={300}
-              />
-            </Link>
+            <ShowImage />
 
             <div className="bg-white flex flex-col justify-start p-6">
               <Link href="#" className="text-blue-700 pb-4 font-bold">
