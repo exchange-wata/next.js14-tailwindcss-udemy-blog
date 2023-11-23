@@ -28,14 +28,7 @@ const ArticleList = ({ articles }: ArticleListProp) => {
                 {article.title}
               </Link>
 
-              <Link
-                href="#"
-                className="text-slate-900 text-3xl font-bold hover:text-gray-700 pb-4"
-              >
-                {article.cntents}
-              </Link>
-
-              <p className="text-sm pb-3b text-slate-900">
+              <p className="text-sm pb-3b text-slate-900 pb-4">
                 published on {article.createdAt}
               </p>
 
