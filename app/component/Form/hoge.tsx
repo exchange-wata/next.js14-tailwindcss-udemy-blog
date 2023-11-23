@@ -4,7 +4,7 @@ import Link from "next/link";
 // TODO:画像部分の処理
 // TODO: リンク先設定
 // TODO: 画像サイズ問題ないかどうか
-const image = () => {
+const ShowImage = () => {
   return (
     <Link href={"#"} className="hover:opacity-75">
       <Image
@@ -17,4 +17,4 @@ const image = () => {
   );
 };
 
-export default image;
+export default ShowImage;
