@@ -1,3 +1,4 @@
+// topページを構成するcomponentの一つ
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
