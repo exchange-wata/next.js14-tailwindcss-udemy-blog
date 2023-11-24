@@ -1,5 +1,10 @@
-// コードを書くためのルール
-// 保守性や堅牢性を上げる
 {
-  "extends": "next/core-web-vitals"
+  "plugins": ["import", "unused-imports"],
+  "rules": {
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      { "vars": "all", "args": "after-used", "ignoreRestSiblings": true }
+    ]
+  }
 }
