@@ -1,9 +1,21 @@
+"use client";
 import { getAllArticles } from "./blogApi";
 import Articles from "./articles/component/ArticleList";
+import { useEffect } from "react";
 
 // ルートディレクトリのデータが表示されている
-export default async function Home() {
-  const articles = await getAllArticles();
+// export default async function Home() {
+export default function Home() {
+  // const articles = await getAllArticles();
+
+  useEffect(() => {
+    const getAllBlogs = async () => {
+      const res = await fetch("http://localhost:3001/posts");
+      const article = await res.json();
+      console.log(article);
+    };
+    getAllBlogs();
+  }, []);
 
   return (
     <div className="md:flex">
