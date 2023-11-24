@@ -2,21 +2,19 @@ import React from "react";
 import Link from "next/link";
 
 type Props = {
-  transition: string | null;
+  articleId: string | null;
   clazzName: string[] | null;
   text: string | null;
 };
 
-const LinkForBlog = ({ transition, clazzName, text }: Props) => {
-  const articleTransition =
-    transition === null || transition === undefined ? "#" : transition;
+const LinkForBlog = ({ articleId, clazzName, text }: Props) => {
+  const path = articleId === null ? "#" : articleId;
   const formattedClassName = clazzName === null ? "" : clazzName.join(" ");
 
   if (text === null || text === undefined) return;
 
-  console.log(articleTransition, formattedClassName);
   return (
-    <Link href={articleTransition} className={formattedClassName}>
+    <Link href={`articles/${path}`} className={formattedClassName}>
       {text}
     </Link>
   );

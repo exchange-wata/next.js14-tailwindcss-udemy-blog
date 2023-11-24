@@ -17,10 +17,13 @@ const ArticleList = ({ articles }: ArticleListProp) => {
             <ShowImage articleId={article.id} />
 
             <div className="bg-white flex flex-col justify-start p-6">
-              console.log("===============================")
-              console.log(article.title)
               <LinkForBlog
-                transition={"#"}
+                articleId={null}
+                clazzName={["text-blue-700 pb-4 font-bold"]}
+                text={"Tecnology"}
+              ></LinkForBlog>
+              <LinkForBlog
+                articleId={article.id}
                 clazzName={["text-blue-700 pb-4 font-bold"]}
                 text={article.title}
               ></LinkForBlog>
@@ -28,12 +31,12 @@ const ArticleList = ({ articles }: ArticleListProp) => {
                 published on {article.createdAt}
               </p>
               <LinkForBlog
-                transition={"#"}
+                articleId={article.id}
                 clazzName={["text-slate-900 pb-6"]}
                 text={article.cntents}
               ></LinkForBlog>
               <LinkForBlog
-                transition={"#"}
+                articleId={article.id}
                 clazzName={["text-pink-800 hover:text-black"]}
                 text={"続きを読む"}
               ></LinkForBlog>
