@@ -1,7 +1,5 @@
 import { Article } from "../../types";
 import ShowImage from "./ArticleList/Image";
-import Link from "next/link";
-import Image from "next/image";
 import LinkForBlog from "./ArticleList/LinkForBlog";
 
 type ArticleListProp = {
