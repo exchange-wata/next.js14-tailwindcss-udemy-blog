@@ -1,4 +1,4 @@
-import { Article } from "../types";
+import { Article } from "../../types";
 import ShowImage from "./ArticleList/Image";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,6 +9,8 @@ type ArticleListProp = {
 };
 
 const ArticleList = ({ articles }: ArticleListProp) => {
+  // console.log("============================");
+  // console.log(articles);
   return (
     <>
       {articles.map((article) => {
@@ -18,7 +20,7 @@ const ArticleList = ({ articles }: ArticleListProp) => {
 
             <div className="bg-white flex flex-col justify-start p-6">
               <LinkForBlog
-                articleId={null}
+                articleId={"#"}
                 clazzName={["text-blue-700 pb-4 font-bold"]}
                 text={"Tecnology"}
               ></LinkForBlog>

@@ -1,20 +1,24 @@
 import React from "react";
 import Link from "next/link";
+import { type } from "os";
 
 type Props = {
-  articleId: string | null;
+  articleId: string;
   clazzName: string[] | null;
   text: string | null;
 };
 
 const LinkForBlog = ({ articleId, clazzName, text }: Props) => {
-  const path = articleId === null ? "#" : articleId;
+  // TODO:書き方きもい
+  const path = articleId === "#" ? "#" : `articles/${articleId}`;
   const formattedClassName = clazzName === null ? "" : clazzName.join(" ");
 
   if (text === null || text === undefined) return;
 
+  console.log(articleId, path, clazzName, text);
+  console.log(typeof path, typeof clazzName);
   return (
-    <Link href={`articles/${path}`} className={formattedClassName}>
+    <Link href={`${path}`} className={formattedClassName}>
       {text}
     </Link>
   );

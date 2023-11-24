@@ -1,5 +1,5 @@
 import { getAllArticles } from "./blogApi";
-import Articles from "./component/ArticleList";
+import Articles from "./articles/component/ArticleList";
 
 // ルートディレクトリのデータが表示されている
 export default async function Home() {
