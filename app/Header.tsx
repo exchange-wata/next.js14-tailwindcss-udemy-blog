@@ -6,9 +6,8 @@ const Header = () => (
     <div>
       <h1 className="text-2xl font-extrabold">
         <LinkForBlog
-          text={"Next.js14 Blog"}
+          contents={"Next.js14 Blog"}
           clazzName={null}
-          path={"/"}
           articleId={null}
         />
       </h1>
@@ -16,10 +15,9 @@ const Header = () => (
     <div>
       <nav className="text-sm font-mediums">
         <LinkForBlog
-          text={"記事を書く"}
+          contents={"記事を書く"}
           clazzName={["bg-pink-600", "px-3", "py-3", "rounded-md"]}
-          path={"articles/new"}
-          articleId={null}
+          articleId={"new"}
         />
       </nav>
     </div>
