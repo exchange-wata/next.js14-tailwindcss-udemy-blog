@@ -1,5 +1,4 @@
-import React from "react";
-import { getDetailArticle } from "@/api/getAllbArticleApi";
+import { getDetailArticle } from "@/api/getDetailArticle";
 import ShowImage from "../component/Image";
 
 const Article = async ({ params }: { params: { id: string } }) => {
