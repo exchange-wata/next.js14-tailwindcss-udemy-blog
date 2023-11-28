@@ -1,11 +1,11 @@
 import React from "react";
-import LinkForBlog from "./articles/component/LinkForBlog";
+import LinkForArticle from "./articles/component/Articles/LinkForArticle";
 
 const Header = () => (
   <header className="py-5 px-10 border-b flex justify-between items-center">
     <div>
       <h1 className="text-2xl font-extrabold">
-        <LinkForBlog
+        <LinkForArticle
           contents={"Next.js14 Blog"}
           clazzName={null}
           articleId={null}
@@ -14,7 +14,7 @@ const Header = () => (
     </div>
     <div>
       <nav className="text-sm font-mediums">
-        <LinkForBlog
+        <LinkForArticle
           contents={"記事を書く"}
           clazzName={["bg-pink-600", "px-3", "py-3", "rounded-md"]}
           articleId={"new"}

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Article } from "../../../types";
 import ShowImage from "../Image";
-import LinkForBlog from "../LinkForBlog";
+import LinkForArticle from "./LinkForArticle";
 
 type ArticleListProp = {
   articles: Article[];
@@ -18,7 +18,7 @@ const ArticleList = ({ articles }: ArticleListProp) => {
             </Link>
 
             <div className="bg-white flex flex-col justify-start p-6">
-              <LinkForBlog
+              <LinkForArticle
                 articleId={article.id}
                 clazzName={["text-blue-700 pb-4 font-bold"]}
                 contents={article.title}
@@ -26,12 +26,12 @@ const ArticleList = ({ articles }: ArticleListProp) => {
               <p className="text-sm pb-3b text-slate-900 pb-4">
                 published on {article.createdAt}
               </p>
-              <LinkForBlog
+              <LinkForArticle
                 articleId={article.id}
                 clazzName={["text-slate-900 pb-6"]}
                 contents={article.cntents}
               />
-              <LinkForBlog
+              <LinkForArticle
                 articleId={article.id}
                 clazzName={["text-pink-800 hover:text-black"]}
                 contents={"続きを読む"}
