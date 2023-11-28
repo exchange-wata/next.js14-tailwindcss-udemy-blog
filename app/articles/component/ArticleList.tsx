@@ -12,7 +12,7 @@ const ArticleList = ({ articles }: ArticleListProp) => {
       {articles.map((article) => {
         return (
           <article className="shadow my-4 flex flex-col" key={article.id}>
-            <ShowImage articleId={article.id} />
+            <ShowImage articleId={article.uuid} />
 
             <div className="bg-white flex flex-col justify-start p-6">
               <LinkForBlog
@@ -22,7 +22,7 @@ const ArticleList = ({ articles }: ArticleListProp) => {
                 path={""}
               />
               <LinkForBlog
-                articleId={article.id}
+                articleId={article.uuid}
                 clazzName={["text-blue-700 pb-4 font-bold"]}
                 text={article.title}
                 path={""}
@@ -31,13 +31,13 @@ const ArticleList = ({ articles }: ArticleListProp) => {
                 published on {article.createdAt}
               </p>
               <LinkForBlog
-                articleId={article.id}
+                articleId={article.uuid}
                 clazzName={["text-slate-900 pb-6"]}
                 text={article.cntents}
                 path={""}
               />
               <LinkForBlog
-                articleId={article.id}
+                articleId={article.uuid}
                 clazzName={["text-pink-800 hover:text-black"]}
                 text={"続きを読む"}
                 path={""}

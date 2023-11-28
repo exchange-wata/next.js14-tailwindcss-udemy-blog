@@ -1,11 +1,13 @@
 import React from "react";
 import Image from "next/image";
+import { getDetailArticle } from "@/app/blogApi";
 
 type Props = {
-  id: string;
+  uuid: string;
 };
 
-const Articles = ({ id }: Props) => {
+const Articles = async ({ uuid }: Props) => {
+  const detailArticle = await getDetailArticle(uuid);
   return (
     <div className="max-w-3xl mx-auto p-5">
       <Image
