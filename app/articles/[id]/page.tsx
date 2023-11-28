@@ -6,8 +6,8 @@ type Props = {
   uuid: string;
 };
 
-const Articles = async ({ uuid }: Props) => {
-  const detailArticle = await getDetailArticle(uuid);
+const Articles = async ({ id }: Props) => {
+  const detailArticle = await getDetailArticle(id);
   return (
     <div className="max-w-3xl mx-auto p-5">
       <Image

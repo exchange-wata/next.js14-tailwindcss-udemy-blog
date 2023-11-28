@@ -20,14 +20,14 @@ export const getAllArticles = async (): Promise<Article[]> => {
 // TODO: エラーハンドリング
 // TODO: useなんとかの方？
 // TODO: envにしたい
-export const getDetailArticle = async (uuid: string): Promise<Article> => {
+export const getDetailArticle = async (id: string): Promise<Article> => {
   // const postId = Number(uuid.replace("-", ""));
-  const res = await fetch(`http://localhost:3001/posts/${uuid}}`, {
+  const res = await fetch(`http://localhost:3001/posts/${id}}`, {
     next: { revalidate: 60 }, // ISR
   });
 
   if (res.status === 404) notFound();
-  if (!res.ok) throw new Error(`記事識別値${uuid}の取得に失敗しました。`);
+  if (!res.ok) throw new Error(`記事識別値${id}の取得に失敗しました。`);
 
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
