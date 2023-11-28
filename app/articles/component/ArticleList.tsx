@@ -7,8 +7,6 @@ type ArticleListProp = {
 };
 
 const ArticleList = ({ articles }: ArticleListProp) => {
-  // console.log("============================");
-  // console.log(articles);
   return (
     <>
       {articles.map((article) => {
@@ -18,15 +16,17 @@ const ArticleList = ({ articles }: ArticleListProp) => {
 
             <div className="bg-white flex flex-col justify-start p-6">
               <LinkForBlog
-                articleId={"#"}
+                articleId={"/"}
                 clazzName={["text-blue-700 pb-4 font-bold"]}
                 text={"Tecnology"}
-              ></LinkForBlog>
+                path={""}
+              />
               <LinkForBlog
                 articleId={article.id}
                 clazzName={["text-blue-700 pb-4 font-bold"]}
                 text={article.title}
-              ></LinkForBlog>
+                path={""}
+              />
               <p className="text-sm pb-3b text-slate-900 pb-4">
                 published on {article.createdAt}
               </p>
@@ -34,12 +34,14 @@ const ArticleList = ({ articles }: ArticleListProp) => {
                 articleId={article.id}
                 clazzName={["text-slate-900 pb-6"]}
                 text={article.cntents}
-              ></LinkForBlog>
+                path={""}
+              />
               <LinkForBlog
                 articleId={article.id}
                 clazzName={["text-pink-800 hover:text-black"]}
                 text={"続きを読む"}
-              ></LinkForBlog>
+                path={""}
+              />
             </div>
           </article>
         );

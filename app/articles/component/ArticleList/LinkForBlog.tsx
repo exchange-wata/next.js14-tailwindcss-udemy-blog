@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 type Props = {
-  articleId: number | null;
+  articleId: string | null;
   path: string
   clazzName: string[] | null;
   text: string | null;
