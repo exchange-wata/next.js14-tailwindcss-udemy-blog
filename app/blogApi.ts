@@ -10,5 +10,8 @@ export const getAllArticles = async (): Promise<Article[]> => {
 
   if (!res.ok) throw new Error("データ取得に失敗しました。");
 
+  // loadingの挙動確認のための遅延措置
+  // await new Promise((resolve) => setTimeout(resolve, 1500))
+
   return res.json();
 };
