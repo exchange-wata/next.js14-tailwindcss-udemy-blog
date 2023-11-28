@@ -21,8 +21,7 @@ export const getAllArticles = async (): Promise<Article[]> => {
 // TODO: useなんとかの方？
 // TODO: envにしたい
 export const getDetailArticle = async (id: string): Promise<Article> => {
-  // const postId = Number(uuid.replace("-", ""));
-  const res = await fetch(`http://localhost:3001/posts/${id}}`, {
+  const res = await fetch(`http://localhost:3001/posts/${id}`, {
     next: { revalidate: 60 }, // ISR
   });
 
