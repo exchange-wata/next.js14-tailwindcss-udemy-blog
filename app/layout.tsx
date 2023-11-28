@@ -1,8 +1,8 @@
 // ファイル全体に共通するレイアウト
 import type { Metadata } from "next";
-import "./globals.css";
-import Header from "./Header";
 import Footer from "./Footer";
+import Header from "./Header";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Next.js14 Blog",
@@ -17,9 +17,12 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className="container mx-auto bg-slate-700 text-slate-50">
-        <Header />
-        {children}
-        <Footer />
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow"></main>
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
