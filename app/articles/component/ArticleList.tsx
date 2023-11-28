@@ -1,6 +1,6 @@
 import { Article } from "../../types";
-import ShowImage from "./ArticleList/Image";
-import LinkForBlog from "./ArticleList/LinkForBlog";
+import ShowImage from "./Image";
+import LinkForBlog from "./LinkForBlog";
 
 type ArticleListProp = {
   articles: Article[];
