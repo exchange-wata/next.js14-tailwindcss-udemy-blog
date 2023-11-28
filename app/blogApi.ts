@@ -7,5 +7,6 @@ export const getAllArticles = async (): Promise<Article[]> => {
   const res = await fetch("http://localhost:3001/posts", {
     cache: "no-store", // SSR
   });
+  throw new Error("きた？");
   return res.json();
 };
