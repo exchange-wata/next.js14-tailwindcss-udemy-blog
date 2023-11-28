@@ -1,25 +1,26 @@
 import React from "react";
 import Link from "next/link";
+import { text } from "stream/consumers";
 
 type Props = {
   articleId: string | null;
-  path: string
   clazzName: string[] | null;
-  text: string | null;
+  contents: string | null;
 };
 
-const TOP_PAGE = '/';
+const TOP_PAGE = "/";
 
-const LinkForBlog = ({ articleId, path, clazzName, text }: Props) => {
-  const articlePath = path === null ? TOP_PAGE : articleId !== null ? `articles/${articleId}` : TOP_PAGE;
+const LinkForBlog = ({ articleId, clazzName, contents }: Props) => {
+  const articlePath = articleId !== null ? `articles/${articleId}` : TOP_PAGE;
+
   const formattedClassName = clazzName === null ? "" : clazzName.join(" ");
 
   // FIXME: undefinedの方いらんかも？
-  if (text === null || text === undefined) return;
+  if (contents === null) return;
 
   return (
     <Link href={articlePath} className={formattedClassName}>
-      {text}
+      {contents}
     </Link>
   );
 };

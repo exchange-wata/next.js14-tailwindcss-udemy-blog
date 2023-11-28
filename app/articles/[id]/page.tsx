@@ -1,27 +1,21 @@
 import React from "react";
-import Image from "next/image";
 import { getDetailArticle } from "@/app/blogApi";
+import ShowImage from "../component/Image";
 
-type Props = {
-  uuid: string;
-};
+const Article = async ({ params }: { params: { id: string } }) => {
+  const detailArticle = await getDetailArticle(params.id);
 
-const Articles = async ({ id }: Props) => {
-  const detailArticle = await getDetailArticle(id);
   return (
     <div className="max-w-3xl mx-auto p-5">
-      <Image
-        src={"https://source.unsplash.com/collection/1346951/1000*150?sig=1"}
-        alt={""}
-        width={1280}
-        height={300}
-      />
-      <h1 className="text-4xl text-center mb-10">ここがタイトルです。</h1>
+      <ShowImage articleId={params.id} />
+      <h1 className="text-4xl text-center mb-10 mt-10">
+        {detailArticle.title}
+      </h1>
       <div className="text-lg leading-relaxed text-justify">
-        <p>ここが本文です</p>
+        <p>{detailArticle.cntents}</p>
       </div>
     </div>
   );
 };
 
-export default Articles;
+export default Article;

@@ -1,6 +1,7 @@
-import { Article } from "../../types";
-import ShowImage from "./Image";
-import LinkForBlog from "./LinkForBlog";
+import Link from "next/link";
+import { Article } from "../../../types";
+import ShowImage from "../Image";
+import LinkForBlog from "../LinkForBlog";
 
 type ArticleListProp = {
   articles: Article[];
@@ -9,25 +10,18 @@ type ArticleListProp = {
 const ArticleList = ({ articles }: ArticleListProp) => {
   return (
     <>
-      {articles.map((article) => {
-        console.log(article.title);
-
+      {articles.map(async (article) => {
         return (
           <article className="shadow my-4 flex flex-col" key={article.id}>
-            <ShowImage articleId={article.id} />
+            <Link href={`articles/${article.id}`} className="hover:opacity-75">
+              <ShowImage articleId={article.id} />
+            </Link>
 
             <div className="bg-white flex flex-col justify-start p-6">
               <LinkForBlog
-                articleId={"/"}
-                clazzName={["text-blue-700 pb-4 font-bold"]}
-                text={"Tecnology"}
-                path={""}
-              />
-              <LinkForBlog
                 articleId={article.id}
                 clazzName={["text-blue-700 pb-4 font-bold"]}
-                text={article.title}
-                path={""}
+                contents={article.title}
               />
               <p className="text-sm pb-3b text-slate-900 pb-4">
                 published on {article.createdAt}
@@ -35,14 +29,12 @@ const ArticleList = ({ articles }: ArticleListProp) => {
               <LinkForBlog
                 articleId={article.id}
                 clazzName={["text-slate-900 pb-6"]}
-                text={article.cntents}
-                path={""}
+                contents={article.cntents}
               />
               <LinkForBlog
                 articleId={article.id}
                 clazzName={["text-pink-800 hover:text-black"]}
-                text={"続きを読む"}
-                path={""}
+                contents={"続きを読む"}
               />
             </div>
           </article>

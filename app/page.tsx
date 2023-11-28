@@ -1,5 +1,5 @@
+import ArticleList from "./articles/component/Articles/ArticleList";
 import { getAllArticles } from "./blogApi";
-import Articles from "./articles/component/ArticleList";
 
 // ルートディレクトリのデータが表示されている
 export default async function Home() {
@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <div className="md:flex">
       <section className="w-full md:w2/3 flex flex-col items-center px-3">
-        <Articles articles={articles} />
+        <ArticleList articles={articles} />
       </section>
       {/* TODO: componentにはしない？ */}
       <aside className="w-full md:w-1/3 flex flex-col items-center px-3 md:pl-6">

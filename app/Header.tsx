@@ -19,7 +19,7 @@ const Header = () => (
           text={"記事を書く"}
           clazzName={["bg-pink-600", "px-3", "py-3", "rounded-md"]}
           path={"articles/new"}
-          articleId={null} // TODO: 数値は動的に設定する
+          articleId={null}
         />
       </nav>
     </div>
