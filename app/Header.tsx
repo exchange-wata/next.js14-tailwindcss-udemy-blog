@@ -1,4 +1,3 @@
-import React from "react";
 import LinkForArticle from "./articles/component/Articles/LinkForArticle";
 
 const Header = () => (
