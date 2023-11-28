@@ -29,7 +29,11 @@ const ArticleList = ({ articles }: ArticleListProp) => {
               <LinkForArticle
                 articleId={article.id}
                 clazzName={["text-slate-900 pb-6"]}
-                contents={article.cntents}
+                contents={
+                  article.cntents.length > 70
+                    ? article.cntents.substring(0, 70) + "..."
+                    : article.cntents
+                }
               />
               <LinkForArticle
                 articleId={article.id}
