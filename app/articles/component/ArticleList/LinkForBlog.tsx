@@ -2,23 +2,23 @@ import React from "react";
 import Link from "next/link";
 
 type Props = {
-  articleId: string;
+  articleId: number | null;
+  path: string
   clazzName: string[] | null;
   text: string | null;
 };
 
-const LinkForBlog = ({ articleId, clazzName, text }: Props) => {
-  // TODO:書き方きもい
-  const path = articleId === undefined ? "#" : `articles/${articleId}`;
+const TOP_PAGE = '/';
+
+const LinkForBlog = ({ articleId, path, clazzName, text }: Props) => {
+  const articlePath = path === null ? TOP_PAGE : articleId !== null ? `articles/${articleId}` : TOP_PAGE;
   const formattedClassName = clazzName === null ? "" : clazzName.join(" ");
 
-  // undefinedの方いらんかも？
+  // FIXME: undefinedの方いらんかも？
   if (text === null || text === undefined) return;
 
-  // console.log(articleId, path, clazzName, text);
-  // console.log(typeof path, typeof clazzName);
   return (
-    <Link href={path} className={formattedClassName}>
+    <Link href={articlePath} className={formattedClassName}>
       {text}
     </Link>
   );
