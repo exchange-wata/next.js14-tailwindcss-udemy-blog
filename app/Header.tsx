@@ -16,7 +16,7 @@ const Header = () => (
         <LinkForArticle
           content={"記事を書く"}
           clazzName={["bg-pink-600", "px-3", "py-3", "rounded-md"]}
-          articleId={"new"}
+          articleId={"create"}
         />
       </nav>
     </div>

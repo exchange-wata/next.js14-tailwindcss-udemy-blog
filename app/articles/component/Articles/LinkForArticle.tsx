@@ -9,7 +9,9 @@ type Props = {
 const TOP_PAGE = "/";
 
 const LinkForArticle = ({ articleId, clazzName, content }: Props) => {
-  const articlePath = articleId !== null ? `articles/${articleId}` : TOP_PAGE;
+  // TODO: trueの時のがきもいので修正したい(暫定対応)
+  const articlePath =
+    articleId !== null ? `../articles/${articleId}` : TOP_PAGE;
 
   const formattedClassName = clazzName === null ? "" : clazzName.join(" ");
 

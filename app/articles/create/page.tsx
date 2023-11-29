@@ -1,19 +1,24 @@
 "use client";
 import { createArticle } from "@/api/createArticle";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-const CreateBlogPage = () => {
-  const [id, setId] = useState<string>("");
+const CreateArticlePage = () => {
+  const router = useRouter();
+
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
 
   const handleSibmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     await createArticle({
-      id,
       title,
       content,
     });
+
+    router.push("/");
+    router.refresh();
   };
 
   return (
@@ -23,14 +28,6 @@ const CreateBlogPage = () => {
         className="bg-slate-200 p-6 rounded shadow-lg"
         onSubmit={handleSibmit}
       >
-        <div className="mb-4">
-          <label className="text-gray-700 text-sm font-bold mb-2">URL</label>
-          <input
-            type="text"
-            className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:line-none"
-            onChange={(e) => setId(e.target.value)}
-          />
-        </div>
         <div className="mb-4">
           <label className="text-gray-700 text-sm font-bold mb-2">
             タイトル
@@ -59,4 +56,4 @@ const CreateBlogPage = () => {
   );
 };
 
-export default CreateBlogPage;
+export default CreateArticlePage;
