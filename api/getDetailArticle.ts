@@ -1,8 +1,6 @@
 import { notFound } from "next/navigation";
 import { Article } from "../app/types";
 
-// TODO: エラーハンドリング
-// TODO: useなんとかの方？
 export const getDetailArticle = async (id: string): Promise<Article> => {
   const res = await fetch(`${process.env.JSON_SERVER}${id}`, {
     next: { revalidate: 60 }, // ISR

@@ -1,7 +1,5 @@
 import { Article } from "../app/types";
 
-// TODO: エラーハンドリング
-// TODO: useなんとかの方？
 export const getAllArticles = async (): Promise<Article[]> => {
   const res = await fetch(`${process.env.JSON_SERVER}`, {
     cache: "no-store", // SSR
