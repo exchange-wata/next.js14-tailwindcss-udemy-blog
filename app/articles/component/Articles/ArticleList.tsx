@@ -21,7 +21,7 @@ const ArticleList = ({ articles }: ArticleListProp) => {
               <LinkForArticle
                 articleId={article.id}
                 clazzName={["text-blue-700 pb-4 font-bold"]}
-                contents={article.title}
+                content={article.title}
               />
               <p className="text-sm pb-3b text-slate-900 pb-4">
                 published on {article.createdAt}
@@ -29,7 +29,7 @@ const ArticleList = ({ articles }: ArticleListProp) => {
               <LinkForArticle
                 articleId={article.id}
                 clazzName={["text-slate-900 pb-6"]}
-                contents={
+                content={
                   article.cntents.length > 70
                     ? article.cntents.substring(0, 70) + "..."
                     : article.cntents
@@ -38,7 +38,7 @@ const ArticleList = ({ articles }: ArticleListProp) => {
               <LinkForArticle
                 articleId={article.id}
                 clazzName={["text-pink-800 hover:text-black"]}
-                contents={"続きを読む"}
+                content={"続きを読む"}
               />
             </div>
           </article>

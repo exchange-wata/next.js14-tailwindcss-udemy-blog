@@ -2,6 +2,7 @@ import { getDetailArticle } from "@/api/getDetailArticle";
 import ShowImage from "../component/Image";
 
 const Article = async ({ params }: { params: { id: string } }) => {
+  // RSCでやっている
   const detailArticle = await getDetailArticle(params.id);
 
   return (
@@ -11,7 +12,7 @@ const Article = async ({ params }: { params: { id: string } }) => {
         {detailArticle.title}
       </h1>
       <div className="text-lg leading-relaxed text-justify">
-        <p>{detailArticle.cntents}</p>
+        <p>{detailArticle.content}</p>
       </div>
     </div>
   );

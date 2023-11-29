@@ -5,7 +5,7 @@ const Header = () => (
     <div>
       <h1 className="text-2xl font-extrabold">
         <LinkForArticle
-          contents={"Next.js14 Blog"}
+          content={"Next.js14 Blog"}
           clazzName={null}
           articleId={null}
         />
@@ -14,7 +14,7 @@ const Header = () => (
     <div>
       <nav className="text-sm font-mediums">
         <LinkForArticle
-          contents={"記事を書く"}
+          content={"記事を書く"}
           clazzName={["bg-pink-600", "px-3", "py-3", "rounded-md"]}
           articleId={"new"}
         />
