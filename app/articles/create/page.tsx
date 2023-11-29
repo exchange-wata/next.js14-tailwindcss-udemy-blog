@@ -8,14 +8,19 @@ const CreateArticlePage = () => {
 
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleSibmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setLoading(true);
 
     await createArticle({
       title,
       content,
     });
+
+    setLoading(false);
 
     router.push("/");
     router.refresh();
@@ -47,7 +52,12 @@ const CreateArticlePage = () => {
         </div>
         <button
           type="submit"
-          className="py-2 px-4 border rounded-md bg-pink-400 "
+          className={`py-2 px-4 border rounded-md ${
+            loading
+              ? " bg-pink-400 cursor-not-allowed"
+              : " bg-pink-300 hover:bg-pink-400"
+          }`}
+          disabled={loading}
         >
           投稿
         </button>
