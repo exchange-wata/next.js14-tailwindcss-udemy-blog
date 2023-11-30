@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { Article } from "../app/types";
+import { Article } from "../../app/types";
 
 export const getDetailArticle = async (id: string): Promise<Article> => {
   const res = await fetch(`${process.env.JSON_SERVER}${id}`, {

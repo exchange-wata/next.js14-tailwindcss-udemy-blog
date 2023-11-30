@@ -1,4 +1,4 @@
-import { Article } from "../app/types";
+import { Article } from "../../app/types";
 
 export const getAllArticles = async (): Promise<Article[]> => {
   const res = await fetch(`${process.env.JSON_SERVER}`, {

@@ -1,4 +1,4 @@
-import { getAllArticles } from "../api/getAllbArticle";
+import { getAllArticles } from "../api/json_server/getAllbArticle";
 import ArticleList from "./articles/component/Articles/ArticleList";
 
 // ルートディレクトリのデータが表示されている

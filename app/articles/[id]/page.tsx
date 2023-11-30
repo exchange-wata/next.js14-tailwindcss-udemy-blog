@@ -1,4 +1,4 @@
-import { getDetailArticle } from "@/api/getDetailArticle";
+import { getDetailArticle } from "@/api/json_server/getDetailArticle";
 import DeleteButton from "../component/Articles/DeleteButton";
 import ShowImage from "../component/Image";
 
