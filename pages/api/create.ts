@@ -5,7 +5,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const { id, title, content, createdAt } = req.body;
   // TODO: TBL名を管理する
   const { data, error } = await supabase
-    .from("posts")
+    .from(`${process.env.DB_NAME}`)
     .insert([{ id, title, content, createdAt }]);
 
   if (error) res.status(500).json({ error });

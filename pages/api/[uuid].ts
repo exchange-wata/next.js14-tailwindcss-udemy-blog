@@ -12,7 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     .with("GET", async () => {
       // TODO: TBL名を管理する
       const { data, error } = await supabase
-        .from("posts")
+        .from(`${process.env.DB_NAME}`)
         .select("*")
         .eq("id", id)
         .single();
@@ -24,7 +24,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     })
     .with("DELETE", async () => {
       const { error: deleteError } = await supabase
-        .from("posts")
+        .from(`${process.env.DB_NAME}`)
         .delete()
         .eq("id", id);
       if (deleteError)
