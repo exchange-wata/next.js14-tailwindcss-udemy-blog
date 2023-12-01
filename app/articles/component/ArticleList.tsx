@@ -24,7 +24,7 @@ const ArticleList = ({ articles }: ArticleListProp) => {
                 content={article.title}
               />
               <p className="text-sm pb-3b text-slate-900 pb-4">
-                published on {article.createdAt}
+                published on {new Date(article.createdAt).toLocaleString()}
               </p>
               <LinkForArticle
                 articleId={article.id}
