@@ -1,9 +1,11 @@
 import ArticleList from "./articles/component/ArticleList";
-import { getAllArticles } from "./articles/getAllbArticle";
 
 // ルートディレクトリのデータが表示されている
-export default async function Home() {
-  const articles = await getAllArticles();
+const Home = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api`, {
+    cache: "no-store", // SSR
+  });
+  const articles = await res.json();
 
   return (
     <div className="md:flex">
@@ -39,4 +41,6 @@ export default async function Home() {
       </aside>
     </div>
   );
-}
+};
+
+export default Home;
