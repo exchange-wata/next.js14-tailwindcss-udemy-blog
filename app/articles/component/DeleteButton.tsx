@@ -1,6 +1,5 @@
 "use client";
 
-import { deleteArticle } from "@/app/articles/[uuid]/deleteArticle";
 import { useRouter } from "next/navigation";
 
 type Props = {
@@ -10,7 +9,10 @@ type Props = {
 const DeleteButton = async ({ id }: Props) => {
   const router = useRouter();
   const handleDelete = async () => {
-    await deleteArticle(id);
+    console.log(`${process.env.NEXT_PUBLIC_API_URL}api/${id}`);
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/${id}`, {
+      method: "DELETE",
+    });
 
     router.push("/");
     router.refresh();
