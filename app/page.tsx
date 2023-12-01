@@ -2,7 +2,7 @@ import ArticleList from "./articles/component/ArticleList";
 
 // ルートディレクトリのデータが表示されている
 const Home = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api`, {
     cache: "no-store", // SSR
   });
   const articles = await res.json();

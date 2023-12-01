@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteArticle } from "@/app/articles/[id]/deleteArticle";
+import { deleteArticle } from "@/app/articles/[uuid]/deleteArticle";
 import { useRouter } from "next/navigation";
 
 type Props = {
