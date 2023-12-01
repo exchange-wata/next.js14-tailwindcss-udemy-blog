@@ -1,7 +1,8 @@
 "use client";
-import { createArticle } from "@/app/articles/create/createArticle";
+
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const CreateArticlePage = () => {
   const router = useRouter();
@@ -14,10 +15,17 @@ const CreateArticlePage = () => {
     e.preventDefault();
 
     setLoading(true);
-
-    await createArticle({
-      title,
-      content,
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: uuidv4(),
+        title,
+        content,
+        createdAt: new Date().toISOString(),
+      }),
     });
 
     setLoading(false);
