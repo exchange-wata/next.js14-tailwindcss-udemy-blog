@@ -1,5 +1,5 @@
 "use client";
-import { createArticle } from "@/api/json_server/createArticle";
+import { createArticle } from "@/app/articles/create/createArticle";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 

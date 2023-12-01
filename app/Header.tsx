@@ -1,4 +1,4 @@
-import LinkForArticle from "./articles/component/Articles/LinkForArticle";
+import LinkForArticle from "./articles/component/LinkForArticle";
 
 const Header = () => (
   <header className="py-5 px-10 border-b flex justify-between items-center">

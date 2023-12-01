@@ -1,5 +1,5 @@
-import { getDetailArticle } from "@/api/json_server/getDetailArticle";
-import DeleteButton from "../component/Articles/DeleteButton";
+import { getDetailArticle } from "@/app/articles/[id]/getDetailArticle";
+import DeleteButton from "../component/DeleteButton";
 import ShowImage from "../component/Image";
 
 const Article = async ({ params }: { params: { id: string } }) => {

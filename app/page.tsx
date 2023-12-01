@@ -1,5 +1,5 @@
-import { getAllArticles } from "../api/json_server/getAllbArticle";
-import ArticleList from "./articles/component/Articles/ArticleList";
+import ArticleList from "./articles/component/ArticleList";
+import { getAllArticles } from "./articles/getAllbArticle";
 
 // ルートディレクトリのデータが表示されている
 export default async function Home() {
