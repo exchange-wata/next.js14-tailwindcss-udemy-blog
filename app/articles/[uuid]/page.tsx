@@ -3,8 +3,9 @@ import ShowImage from "../component/Image";
 
 const Article = async ({ params }: { params: { uuid: string } }) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}api/${params.uuid}`,
+    `${process.env.NEXT_PUBLIC_API_URL}api/article/${params.uuid}`,
     {
+      method: "GET",
       next: {
         revalidate: 10, // ISR
       },
