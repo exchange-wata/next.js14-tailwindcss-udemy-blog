@@ -11,11 +11,11 @@ const CreateArticlePage = () => {
   const [content, setContent] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
-  const handleSibmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setLoading(true);
-    await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/create`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/article/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,7 @@ const CreateArticlePage = () => {
       <h2 className="text-2xl font-bold mb-4">ブログ新規作成</h2>
       <form
         className="bg-slate-200 p-6 rounded shadow-lg"
-        onSubmit={handleSibmit}
+        onSubmit={handleSubmit}
       >
         <div className="mb-4">
           <label className="text-gray-700 text-sm font-bold mb-2">
