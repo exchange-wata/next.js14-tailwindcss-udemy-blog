@@ -8,8 +8,9 @@ type Props = {
 
 const DeleteButton = async ({ id }: Props) => {
   const router = useRouter();
+
   const handleDelete = async () => {
-    await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/article/${id}`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/article/delete/${id}`, {
       method: "DELETE",
     });
 

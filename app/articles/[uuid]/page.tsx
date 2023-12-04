@@ -3,7 +3,7 @@ import ShowImage from "../component/Image";
 
 const Article = async ({ params }: { params: { uuid: string } }) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}api/article/${params.uuid}`,
+    `${process.env.NEXT_PUBLIC_API_URL}api/article/get/${params.uuid}`,
     {
       method: "GET",
       next: {
@@ -15,7 +15,7 @@ const Article = async ({ params }: { params: { uuid: string } }) => {
 
   return (
     <div className="max-w-3xl mx-auto p-5">
-      <ShowImage articleId={detailArticle.uuid} />
+      <ShowImage articleId={detailArticle.id} />
       <h1 className="text-4xl text-center mb-10 mt-10">
         {detailArticle.title}
       </h1>
