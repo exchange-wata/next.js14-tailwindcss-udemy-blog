@@ -30,9 +30,16 @@
 ## 受講内容と異なる実装をしたところ
 
 - app/api配下のディレクトリ構成
+- .envにDB情報の追加
 - 各ページのcomponentの構成
   - フロントエンドに詳しい訳ではないので良い構成かはちょっと自信ないです。
+- その他細かい所は割愛
 
 ## できたらやりたかったこと
 
 - supabaseをdocker containerで実装する
+
+## 有識者に聞きたいこと
+
+- app/api/articleの配下のディレクトリ構成でAPIを作るべきか
+  - app/api/article/[uuid]/route.tsにHTTP METHODを全て入れ切ってしまうか
