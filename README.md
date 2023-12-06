@@ -4,6 +4,11 @@
   - [【Next.js13】最新バージョンのNext.js13をマイクロブログ構築しながら基礎と本質を学ぶ講座](https://www.udemy.com/share/109CcM3@rc9scMKgTllcXIHcM6iizpKeoTFPDJ7WPpbJx-9NLd6antoqjjHKKWsFovJPrw6f6A==/)
 - latestを入れたら14系になってたので14系で受講を進めました。
 
+## 技術
+
+- Next.js(14系)
+- Tailwind CSS
+
 ## 開始方法
 
 ※ Nextのプロジェクト作成までは動画内容と同じです。
@@ -43,3 +48,7 @@
 
 - app/api/articleの配下のディレクトリ構成でAPIを作るべきか
   - app/api/article/[uuid]/route.tsにHTTP METHODを全て入れ切ってしまうか
+
+## 注意事項
+
+- 環境変数がgithub上にないので、こちらのリポジトリを手元に持ってきてもブラウザで開けない可能性があります。
