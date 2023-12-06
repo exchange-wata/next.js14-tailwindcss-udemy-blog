@@ -30,7 +30,10 @@
   yarn json-server
   ```
 
-※ ブラウザはこちら→ [http://localhost:3000](http://localhost:3000)
+## 作成物
+
+- ブラウザはこちら→ [http://localhost:3000](http://localhost:3000)
+- ![](screenImage.drawio.svg)
 
 ## 受講内容と異なる実装をしたところ
 
