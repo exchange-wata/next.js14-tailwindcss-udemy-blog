@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 
 type Props = {
   id: string; // FIXME: uuid型あったっけ？
@@ -11,16 +11,16 @@ const DeleteButton = async ({ id }: Props) => {
 
   const handleDelete = async () => {
     await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/article/delete/${id}`, {
-      method: "DELETE",
+      method: 'DELETE',
     });
 
-    router.push("/");
+    router.push('/');
     router.refresh();
   };
 
   return (
     <div
-      className="bg-red-500 hover:bg-red-600 rounded-md py-2 px-5 inline cursor-pointer"
+      className='bg-red-500 hover:bg-red-600 rounded-md py-2 px-5 inline cursor-pointer'
       onClick={handleDelete}
     >
       削除

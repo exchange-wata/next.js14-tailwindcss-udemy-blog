@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 type Props = {
   articleId: string | null;
@@ -6,13 +6,13 @@ type Props = {
   content: string | null;
 };
 
-const TOP_PAGE = "/";
+const TOP_PAGE = '/';
 
 const LinkForArticle = ({ articleId, clazzName, content }: Props) => {
   // TODO: trueの時のがきもいので修正したい(暫定対応)
   const articlePath = articleId !== null ? `articles/${articleId}` : TOP_PAGE;
 
-  const formattedClassName = clazzName === null ? "" : clazzName.join(" ");
+  const formattedClassName = clazzName === null ? '' : clazzName.join(' ');
 
   if (content === null) return;
 

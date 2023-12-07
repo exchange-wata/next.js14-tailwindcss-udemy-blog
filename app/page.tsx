@@ -1,40 +1,40 @@
-import ArticleList from "./articles/component/ArticleList";
+import ArticleList from './articles/component/ArticleList';
 
 // ルートディレクトリのデータが表示されている
 const Home = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/article`, {
-    cache: "no-store", // SSR
+    cache: 'no-store', // SSR
   });
   const articles = await res.json();
 
   return (
-    <div className="md:flex">
-      <section className="w-full md:w2/3 flex flex-col items-center px-3">
+    <div className='md:flex'>
+      <section className='w-full md:w2/3 flex flex-col items-center px-3'>
         <ArticleList articles={articles} />
       </section>
       {/* TODO: componentにはしない？ */}
-      <aside className="w-full md:w-1/3 flex flex-col items-center px-3 md:pl-6">
-        <div className="bg-white shadow-md rounded p-4 mb-6 mt-4">
-          <h3 className="font-bold text-gray-900 mb-2">About Me</h3>
-          <p className="text-gray-600">
+      <aside className='w-full md:w-1/3 flex flex-col items-center px-3 md:pl-6'>
+        <div className='bg-white shadow-md rounded p-4 mb-6 mt-4'>
+          <h3 className='font-bold text-gray-900 mb-2'>About Me</h3>
+          <p className='text-gray-600'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
             varius enim in eros elementum tristique.
           </p>
         </div>
-        <div className="bg-white shadow-md rounded p-4 mb-6 mt-4 w-full">
-          <h3 className="font-bold text-gray-900 mb-2">Category</h3>
-          <ul className="text-gray-600 mt-2">
+        <div className='bg-white shadow-md rounded p-4 mb-6 mt-4 w-full'>
+          <h3 className='font-bold text-gray-900 mb-2'>Category</h3>
+          <ul className='text-gray-600 mt-2'>
             <li>
-              <a href="#">Technology</a>
+              <a href='#'>Technology</a>
             </li>
             <li>
-              <a href="#">Automotive</a>
+              <a href='#'>Automotive</a>
             </li>
             <li>
-              <a href="#">Finance</a>
+              <a href='#'>Finance</a>
             </li>
             <li>
-              <a href="#">Sports</a>
+              <a href='#'>Sports</a>
             </li>
           </ul>
         </div>

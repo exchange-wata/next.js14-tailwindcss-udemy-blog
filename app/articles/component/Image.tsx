@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 type HrefProp = {
   articleId: string;
@@ -10,7 +10,7 @@ const ShowImage = ({ articleId }: HrefProp) => {
   return (
     <Image
       src={`${process.env.RANDOM_IMAGE_URL}${articleId}`}
-      alt={""}
+      alt={''}
       width={1280}
       height={300}
     />
