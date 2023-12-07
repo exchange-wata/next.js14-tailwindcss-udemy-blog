@@ -1,11 +1,22 @@
+'use client';
+import { supabase } from '@/database/supabase/createClient';
+import { useRouter } from 'next/navigation';
 import ArticleList from './articles/component/ArticleList';
+import { Article } from './types';
 
-// ルートディレクトリのデータが表示されている
+const getAllArticles = async () => {
+  const { data, error } = await supabase
+    .from(`${process.env.DB_NAME}`)
+    .select('*');
+
+  if (!error) JSON.stringify(error);
+  return data as Article[];
+};
+
 const Home = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/article`, {
-    cache: 'no-store', // SSR
-  });
-  const articles = await res.json();
+  const router = useRouter();
+  const articles = await getAllArticles();
+  if (articles === null) router.push('/');
 
   return (
     <div className='md:flex'>
