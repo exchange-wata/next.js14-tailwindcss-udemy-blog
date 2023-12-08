@@ -10,7 +10,7 @@ type ArticleListProp = {
 const ArticleList = ({ articles }: ArticleListProp) => {
   return (
     <>
-      {articles.map(async (article) => {
+      {articles.map((article) => {
         return (
           <article className='shadow my-4 flex flex-col' key={article.id}>
             <Link href={`articles/${article.id}`} className='hover:opacity-75'>

@@ -1,6 +1,4 @@
-'use client';
 import { supabase } from '@/database/supabase/createClient';
-import { useRouter } from 'next/navigation';
 import ArticleList from './articles/component/ArticleList';
 import { Article } from './types';
 
@@ -9,14 +7,12 @@ const getAllArticles = async () => {
     .from(`${process.env.DB_NAME}`)
     .select('*');
 
-  if (!error) JSON.stringify(error);
+  if (error) throw error;
   return data as Article[];
 };
 
 const Home = async () => {
-  const router = useRouter();
   const articles = await getAllArticles();
-  if (articles === null) router.push('/');
 
   return (
     <div className='md:flex'>
