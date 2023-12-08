@@ -1,11 +1,18 @@
+import { supabase } from '@/database/supabase/createClient';
 import ArticleList from './articles/component/ArticleList';
+import { Article } from './types';
 
-// ルートディレクトリのデータが表示されている
+const getAllArticles = async () => {
+  const { data, error } = await supabase
+    .from(`${process.env.DB_NAME}`)
+    .select('*');
+
+  if (error) throw error;
+  return data as Article[];
+};
+
 const Home = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/article`, {
-    cache: 'no-store', // SSR
-  });
-  const articles = await res.json();
+  const articles = await getAllArticles();
 
   return (
     <div className='md:flex'>
