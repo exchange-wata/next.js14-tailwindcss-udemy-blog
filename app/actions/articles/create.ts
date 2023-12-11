@@ -17,7 +17,7 @@ export const createArticle = async (
   const validateTitle = schema.safeParse({ title: formData.get('title') });
   if (!validateTitle.success) {
     revalidatePath('/article/create');
-    throw validateTitle.error.flatten().fieldErrors;
+    return validateTitle.error.flatten().fieldErrors;
   }
 
   const { error } = await supabase.from(`${process.env.DB_NAME}`).insert([
@@ -29,7 +29,7 @@ export const createArticle = async (
     },
   ]);
 
-  if (error) throw error;
+  // if (error) throw error;
 
   revalidatePath('/');
   redirect('/');

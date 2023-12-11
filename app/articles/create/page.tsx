@@ -10,6 +10,7 @@ const initialState = {
 };
 
 const CreateArticlePage = () => {
+  // FIXME: 警告をなんとかしたい
   const [state, formActions] = useFormState(createArticle, initialState);
   return (
     <div className='min-h-screen py-8 px-4 md:px-12'>
