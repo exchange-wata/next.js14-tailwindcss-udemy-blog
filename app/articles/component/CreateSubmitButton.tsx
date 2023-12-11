@@ -1,8 +1,7 @@
-import { useFormState } from 'react-dom';
+import { useFormStatus } from 'react-dom';
 
 const CreateSubmitButton = () => {
-  // FIXME: 警告がでるのなんとかしたい
-  const { pending } = useFormState();
+  const { pending } = useFormStatus();
   return (
     <button
       type='submit'

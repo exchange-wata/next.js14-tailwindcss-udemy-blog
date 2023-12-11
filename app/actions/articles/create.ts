@@ -10,10 +10,10 @@ const schema = z.object({
   title: z.string().max(20, { message: '最大文字数は20文字です' }),
 });
 
-export const createArticle = async (formData: FormData) => {
-  console.log('============2===============');
-  console.log(formData);
-
+export const createArticle = async (
+  _: { title: string; content: string },
+  formData: FormData
+) => {
   const validateTitle = schema.safeParse({ title: formData.get('title') });
   if (!validateTitle.success) {
     revalidatePath('/article/create');
@@ -25,7 +25,7 @@ export const createArticle = async (formData: FormData) => {
       id: uuidv4(),
       title: formData.get('title'),
       content: formData.get('content'),
-      createdat: new Date().toISOString(),
+      createdAt: new Date().toISOString(),
     },
   ]);
 

@@ -5,15 +5,12 @@ import { useFormState } from 'react-dom';
 import CreateSubmitButton from '../component/CreateSubmitButton';
 
 const initialState = {
-  title: null,
-  content: null,
+  title: '',
+  content: '',
 };
 
-const CreateArticlePage = async () => {
+const CreateArticlePage = () => {
   const [state, formActions] = useFormState(createArticle, initialState);
-  // console.log('===================1==============-');
-  // console.log(state);
-
   return (
     <div className='min-h-screen py-8 px-4 md:px-12'>
       <h2 className='text-2xl font-bold mb-4'>ブログ新規作成</h2>
@@ -25,8 +22,9 @@ const CreateArticlePage = async () => {
           <input
             type='text'
             className='shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:line-none'
-            {...state.title}
+            name='title'
             required
+            defaultValue={state.title}
           />
         </div>
         <div className='mb-4'>
@@ -34,7 +32,7 @@ const CreateArticlePage = async () => {
           <textarea
             className='shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:line-none'
             name='content'
-            {...state.content}
+            defaultValue={state.content}
             required
           />
         </div>
