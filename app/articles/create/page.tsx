@@ -36,6 +36,7 @@ const CreateArticlePage = () => {
                 className='text-red-600 text-sm'
                 id='title-error'
                 aria-live='polite'
+                key={'title' + error}
               >
                 {error}
               </div>
@@ -56,6 +57,7 @@ const CreateArticlePage = () => {
                 className='text-red-600 text-sm'
                 id='content-error'
                 aria-live='polite'
+                key={'content' + error}
               >
                 {error}
               </div>
