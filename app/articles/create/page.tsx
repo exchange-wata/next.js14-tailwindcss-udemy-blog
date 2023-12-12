@@ -31,12 +31,12 @@ const CreateArticlePage = () => {
             aria-describedby='title-error'
           />
           {state?.error?.title &&
-            state.error?.title.map((error) => (
+            state.error?.title.map((error, index) => (
               <div
                 className='text-red-600 text-sm'
                 id='title-error'
                 aria-live='polite'
-                key={'title' + error}
+                key={index}
               >
                 {error}
               </div>
@@ -52,12 +52,12 @@ const CreateArticlePage = () => {
             aria-describedby='content-error'
           />
           {state?.error?.content &&
-            state.error?.content.map((error) => (
+            state.error?.content.map((error, index) => (
               <div
                 className='text-red-600 text-sm'
                 id='content-error'
                 aria-live='polite'
-                key={'content' + error}
+                key={index}
               >
                 {error}
               </div>
