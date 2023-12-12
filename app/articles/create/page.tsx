@@ -5,12 +5,14 @@ import { useFormState } from 'react-dom';
 import CreateSubmitButton from '../component/CreateSubmitButton';
 
 const initialState = {
-  errors: {},
+  error: {
+    title: [],
+    content: [],
+  },
   message: '',
 };
 
 const CreateArticlePage = () => {
-  // FIXME: 警告をなんとかしたい
   const [state, formActions] = useFormState(createArticle, initialState);
   return (
     <div className='min-h-screen py-8 px-4 md:px-12'>
@@ -25,11 +27,11 @@ const CreateArticlePage = () => {
             className='shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:line-none'
             name='title'
             required
-            defaultValue={state?.value?.title || ''}
+            defaultValue={''}
             aria-describedby='title-error'
           />
           {state?.error?.title &&
-            state.error.title.map((error) => (
+            state.error?.title.map((error) => (
               <div
                 className='text-red-600 text-sm'
                 id='title-error'
@@ -44,12 +46,12 @@ const CreateArticlePage = () => {
           <textarea
             className='shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:line-none'
             name='content'
-            defaultValue={state?.content || ''}
+            defaultValue={''}
             required
             aria-describedby='content-error'
           />
           {state?.error?.content &&
-            state.error.content.map((error) => (
+            state.error?.content.map((error) => (
               <div
                 className='text-red-600 text-sm'
                 id='content-error'

@@ -8,8 +8,8 @@ import { z } from 'zod';
 
 type State = {
   errors?: {
-    title?: string[];
-    content?: string[];
+    title?: string[] | undefined;
+    content?: string[] | undefined;
   };
   message: string | null;
 };
