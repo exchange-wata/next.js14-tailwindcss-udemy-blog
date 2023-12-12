@@ -1,12 +1,12 @@
 'use client';
 
-import { createArticle } from '@/app/actions/articles/create';
+import { createArticle } from '@/app/lib/articles/create';
 import { useFormState } from 'react-dom';
 import CreateSubmitButton from '../component/CreateSubmitButton';
 
 const initialState = {
-  title: '',
-  content: '',
+  errors: {},
+  message: '',
 };
 
 const CreateArticlePage = () => {
@@ -25,19 +25,48 @@ const CreateArticlePage = () => {
             className='shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:line-none'
             name='title'
             required
-            defaultValue={state.title}
+            defaultValue={state?.value?.title || ''}
+            aria-describedby='title-error'
           />
+          {state?.error?.title &&
+            state.error.title.map((error) => (
+              <div
+                className='text-red-600 text-sm'
+                id='title-error'
+                aria-live='polite'
+              >
+                {error}
+              </div>
+            ))}
         </div>
         <div className='mb-4'>
           <label className='text-gray-700 text-sm font-bold mb-2'>本文</label>
           <textarea
             className='shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:line-none'
             name='content'
-            defaultValue={state.content}
+            defaultValue={state?.content || ''}
             required
+            aria-describedby='content-error'
           />
+          {state?.error?.content &&
+            state.error.content.map((error) => (
+              <div
+                className='text-red-600 text-sm'
+                id='content-error'
+                aria-live='polite'
+              >
+                {error}
+              </div>
+            ))}
         </div>
         <CreateSubmitButton />
+
+        {/* エラーメッセージがあれば表示する */}
+        {state.message && (
+          <div className='text-red-600 text-sm' aria-live='polite'>
+            {state.message}
+          </div>
+        )}
       </form>
     </div>
   );
