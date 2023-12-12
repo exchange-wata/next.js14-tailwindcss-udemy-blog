@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation';
 import { v4 as uuidv4 } from 'uuid';
 import { z } from 'zod';
 
-type State = {
+type CreateArticleState = {
   errors?: {
     title?: string[] | undefined;
     content?: string[] | undefined;
@@ -32,7 +32,20 @@ const schema = z.object({
     .max(200, { message: CONTENT_MAX_LENGTH_VALID_MESSAGE }),
 });
 
-export const createArticle = async (_: State, formData: FormData) => {
+export const createArticle = async (
+  _: CreateArticleState,
+  formData: FormData
+) => {
+  const validatedData = validate(formData);
+
+  if (validatedData.error === undefined)
+    await save(validatedData.title, validatedData.content);
+
+  revalidatePath('/');
+  redirect('/');
+};
+
+const validate = (formData: FormData) => {
   const validatedField = schema.safeParse({
     title: formData.get('title'),
     content: formData.get('content'),
@@ -46,6 +59,10 @@ export const createArticle = async (_: State, formData: FormData) => {
   }
 
   const { title, content } = validatedField.data;
+  return { title, content };
+};
+
+const save = async (title: string, content: string) => {
   const { error } = await supabase.from(`${process.env.DB_NAME}`).insert([
     {
       id: uuidv4(),
@@ -56,7 +73,4 @@ export const createArticle = async (_: State, formData: FormData) => {
   ]);
 
   if (error) return error;
-
-  revalidatePath('/');
-  redirect('/');
 };
