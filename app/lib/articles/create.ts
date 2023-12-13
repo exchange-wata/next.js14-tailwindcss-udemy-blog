@@ -38,11 +38,14 @@ export const createArticle = async (
 ) => {
   const validatedData = validate(formData);
 
-  if (validatedData.error === undefined)
+  if (validatedData.error === undefined) {
     await save(validatedData.title, validatedData.content);
 
-  revalidatePath('/');
-  redirect('/');
+    revalidatePath('/');
+    redirect('/');
+  }
+
+  return validatedData;
 };
 
 const validate = (formData: FormData) => {
