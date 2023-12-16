@@ -27,11 +27,11 @@ const CreateArticlePage = () => {
             className='shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:line-none'
             name='title'
             required
-            defaultValue={''}
+            defaultValue={state.title ?? ''}
             aria-describedby='title-error'
           />
           {state?.error?.title &&
-            state.error?.title.map((error, index) => (
+            state.error.title.map((error, index) => (
               <div
                 className='text-red-600 text-sm'
                 id='title-error'
@@ -47,12 +47,12 @@ const CreateArticlePage = () => {
           <textarea
             className='shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:line-none'
             name='content'
-            defaultValue={''}
+            defaultValue={state.content ?? ''}
             required
             aria-describedby='content-error'
           />
           {state?.error?.content &&
-            state.error?.content.map((error, index) => (
+            state.error.content.map((error, index) => (
               <div
                 className='text-red-600 text-sm'
                 id='content-error'
